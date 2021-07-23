@@ -15,6 +15,7 @@ func initEngine() *gin.Engine {
 
 	r.GET("/", indexHandler())
 	r.POST("/", connectHandler())
+	r.GET("/ws", wsHandler())
 
 	return r
 }

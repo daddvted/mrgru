@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 type minion struct {
@@ -37,5 +38,28 @@ func connectHandler() gin.HandlerFunc {
 			})
 
 		}
+	}
+}
+
+var ws = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+}
+
+func wsHandler() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		conn, err := ws.Upgrade(c.Writer, c.Request, nil)
+		if err != nil {
+			fmt.Printf("fail to upgrade ws:%+v\n", err)
+		}
+
+		for {
+			t, msg, err := conn.ReadMessage()
+			if err != nil {
+				break
+			}
+			conn.WriteMessage(t, msg)
+		}
+
 	}
 }
