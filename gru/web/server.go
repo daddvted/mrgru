@@ -14,8 +14,10 @@ func initEngine() *gin.Engine {
 	r.LoadHTMLGlob("templates/*")
 
 	r.GET("/", indexHandler())
+	r.GET("/login", loginHandler())
 	r.POST("/", connectHandler())
 	r.GET("/ws", wsHandler())
+	r.GET("/term", termHandler())
 
 	return r
 }

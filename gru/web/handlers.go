@@ -16,9 +16,23 @@ type minion struct {
 	Term     string
 }
 
+func loginHandler() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.html", gin.H{})
+	}
+}
+
 func indexHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{})
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title": "hello Ted",
+		})
+	}
+}
+
+func termHandler() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.HTML(200, "term.html", gin.H{})
 	}
 }
 
