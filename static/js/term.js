@@ -11,7 +11,6 @@ jQuery(function ($) {
     cols: 128,
   });
 
-  terminal.open(document.getElementById("terminal"));
   var protocol = (location.protocol === "https:") ? "wss://" : "ws://";
   var url = protocol + location.host + "/ws";
   var ws = new WebSocket(url);
@@ -21,16 +20,19 @@ jQuery(function ($) {
   var webLinksAddon = new WebLinksAddon.WebLinksAddon();
   var unicode11Addon = new Unicode11Addon.Unicode11Addon();
   var serializeAddon = new SerializeAddon.SerializeAddon();
-  fitAddon.fit();
   terminal.loadAddon(fitAddon);
   terminal.loadAddon(webLinksAddon);
   terminal.loadAddon(unicode11Addon);
   terminal.loadAddon(serializeAddon);
 
   ws.onopen = function () {
+    terminal.open(document.getElementById("terminal"));
     terminal.loadAddon(attachAddon);
     terminal._initialized = true;
+    // fitAddon.fit();
+    $("#terminal .terminal").toggleClass("fullscreen");
     terminal.focus();
+
     setTimeout(function () { fitAddon.fit() });
     terminal.onResize(function (event) {
       var rows = event.rows;

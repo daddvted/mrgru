@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "Hack";
+    src: url("../fonts/Hack-Regular.ttf");
+}
+
+@font-face {
+    font-family: "pixel-font-7";
+    src: url("../fonts/pixel-font-7.ttf");
+}
+
+/* body {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    /* font-family:Helvetica,Tahoma, Arial,"PingFang SC",STXihei,"Microsoft yahei","WenQuanYi Micro Hei",sans-serif; */
+    /* font-family: "Press Start 2P", Zpix; */
+    /* font-family: "Press Start 2P"; */
+    /* font-family: "pixel-font-7"; */
+    /* font-family: "Hack"; */
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+div#terminal {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+div#terminal div {
+  height: 100%;
+}
+
+.xterm-viewport,
+.xterm-screen {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
