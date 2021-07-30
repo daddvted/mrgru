@@ -17,13 +17,13 @@ jQuery(function ($) {
 
   var attachAddon = new AttachAddon.AttachAddon(ws);
   var fitAddon = new FitAddon.FitAddon();
-  var webLinksAddon = new WebLinksAddon.WebLinksAddon();
-  var unicode11Addon = new Unicode11Addon.Unicode11Addon();
-  var serializeAddon = new SerializeAddon.SerializeAddon();
+  // var webLinksAddon = new WebLinksAddon.WebLinksAddon();
+  // var unicode11Addon = new Unicode11Addon.Unicode11Addon();
+  // var serializeAddon = new SerializeAddon.SerializeAddon();
   terminal.loadAddon(fitAddon);
-  terminal.loadAddon(webLinksAddon);
-  terminal.loadAddon(unicode11Addon);
-  terminal.loadAddon(serializeAddon);
+  // terminal.loadAddon(webLinksAddon);
+  // terminal.loadAddon(unicode11Addon);
+  // terminal.loadAddon(serializeAddon);
 
   ws.onopen = function () {
     terminal.open(document.getElementById("terminal"));
